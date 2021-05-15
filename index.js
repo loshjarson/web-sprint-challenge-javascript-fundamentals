@@ -17,9 +17,9 @@ myFunction();
 
 //🚀🚀🚀 ⬇️ 📝 Explanation ⬇️ 📝 🚀🚀🚀: 
 
-//The nested function as access to the variable internal because they are created in the same function scope. 
-//There are two types of scope, function (which has local variables) and global (which has global variables). 
-//Local variables can only be accessed from within their functions. Global variables can be accessed by all functions.
+/*The nested function as access to the variable internal because they are created in the same function scope. 
+There are two types of scope, function (which has local variables) and global (which has global variables). 
+Local variables can only be accessed from within their functions. Global variables can be accessed by all functions. */
 
 
 
@@ -31,12 +31,12 @@ myFunction();
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 
 function summation(number) {
-  let numberArray = [];
+  const numberArray = [];
   for (let i=1; i < number+1; i++){
     numberArray.push(i)
   };
   return numberArray.reduce((accumulator, currentValue) => accumulator + currentValue);
-  }
+  };
  
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
@@ -67,7 +67,7 @@ const zooAnimals = [
       displayNames.push(`name: ${element.animal_name}, scientific: ${element.scientific_name}`)
     });
     return displayNames;
-  }
+  };
   
 
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
@@ -84,7 +84,7 @@ const zooAnimals = [
     });
     lowerCased = lowerCased.map(object => object.toLowerCase());
     return lowerCased
-  }
+  };
   
   
   /* 🦁🦁🦁 Request 3: .filter() 🦁🦁🦁
@@ -94,7 +94,7 @@ const zooAnimals = [
 
   function lowPopulationAnimals(animals){
     return animals.filter(object => object.population < 5);
-  }
+  };
   
 
   /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁
@@ -108,7 +108,7 @@ const zooAnimals = [
     animals.forEach(object => populations.push(object.population));
     populations = populations.reduce((accumulator, currentValue) => accumulator + currentValue);
     return populations
-  }
+  };
   
   
   // 🦁🦁🦁 Callbacks 🦁🦁🦁  
@@ -121,7 +121,7 @@ const zooAnimals = [
 
   function consume(a, b, cb){
     return cb(a,b)
-  }
+  };
  
   
   /* 🦁🦁🦁 Step 2: Create several functions to callback with consume(); 🦁🦁🦁 */
@@ -129,19 +129,19 @@ const zooAnimals = [
   
 function add(num1, num2){
     return num1 + num2
-  }
+  };
 
 // 🦁🦁🦁 Use multiply to return the product of two numbers 🦁🦁🦁
   
 function multiply(num1, num2){
     return num1 * num2
-  }
+  };
 
  // 🦁🦁🦁 Use greeting to accept a first and last name and return "Hello {first-name} {last-name}, nice to meet you!" 🦁🦁🦁
   
 function greeting(firstName, lastName){
     return `Hello ${firstName} ${lastName}, nice to meet you!`
-  }
+  };
   
   // 🦁🦁🦁 Step 3: Check your work by un-commenting the following calls to consume(): 🦁🦁🦁 
   // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
@@ -165,7 +165,7 @@ function CuboidMaker(dimensions){
   this.length = dimensions.length;
   this.width = dimensions.width;
   this.height = dimensions.height;
-}
+};
 
 
 /* 🐴🐴🐴 Step 2: Volume Method 🐴🐴🐴
@@ -174,7 +174,7 @@ function CuboidMaker(dimensions){
 
 CuboidMaker.prototype.volume = function () {
   return this.length * this.width * this.height;
-}
+};
 
 
 
@@ -185,7 +185,7 @@ CuboidMaker.prototype.volume = function () {
 
   CuboidMaker.prototype.surfaceArea = function () {
     return 2 * (this.length * this.width + this.length * this.height + this.width * this.height);
-  }
+  };
   
 
 
@@ -194,7 +194,7 @@ CuboidMaker.prototype.volume = function () {
   Create an object called cuboid that uses the new keyword to use our CuboidMaker constructor
   Add properties and values of length: 4, width: 5, and height: 5 to cuboid. */
 
-let cuboid = new CuboidMaker({length: 4, width: 5, height: 5})
+let cuboid = new CuboidMaker({length: 4, width: 5, height: 5});
 
 
 
@@ -219,8 +219,9 @@ class CuboidMakerTwo{
   surfaceArea(){
     return 2 * (this.length * this.width + this.length * this.height + this.width * this.height);
   }
-}
+};
 
+let cuboidTwo = new CuboidMakerTwo({length: 4, width: 5, height: 5});
 
 //🦄🦄🦄 Test your volume and surfaceArea methods by uncommenting the logs below: 🦄🦄🦄
 // console.log(cuboidTwo.volume()); // 100
@@ -232,7 +233,17 @@ class CuboidMakerTwo{
 
 // 🦄 💪 Stretch Task: Extend the base class CuboidMaker with a sub class called CubeMaker.  Find out the formulas for volume and surface area for cubes and create those methods using the dimension properties from CuboidMaker.  Test your work by logging out your volume and surface area. 🦄 💪
   
-
+class CubeMaker extends CuboidMakerTwo {
+  constructor (object) {
+    super(object);
+  }
+  volume() {
+    return this.length * this.length * this.length
+  };
+  surface() {
+    return 6 * (this.length * this.length)
+  }
+};
 
 
 
