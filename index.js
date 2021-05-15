@@ -17,7 +17,9 @@ myFunction();
 
 //🚀🚀🚀 ⬇️ 📝 Explanation ⬇️ 📝 🚀🚀🚀: 
 
-
+//The nested function as access to the variable internal because they are created in the same function scope. 
+//There are two types of scope, function (which has local variables) and global (which has global variables). 
+//Local variables can only be accessed from within their functions. Global variables can be accessed by all functions.
 
 
 
